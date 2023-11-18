@@ -7,13 +7,11 @@ function randomNumber(min,max){
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-btn.addEventListener('click', () => {
+function generarCita(){
   let randomIndex = randomNumber(0, citas.length - 1)
   cita.innerText = `"${citas[randomIndex].texto}"`
   autor.innerText = `- ${citas[randomIndex].autor}`
-})
-/* 
-function generarCita() {
-  cita.innerText = citas[randomIndex].texto;
-  autor.innerText = citas[randomIndex].autor;
-} */
+}
+
+generarCita();
+btn.addEventListener('click', generarCita);
