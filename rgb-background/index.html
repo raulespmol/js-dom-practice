@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Random Color</title>
+</head>
+<body class="flex-center">
+  
+  <div class="container flex-center">
+    <div class="selector">
+      <label for="R">R</label>
+      <input type="range" id="R" min="0" max="255" value="52" step="1">
+      <span id="Rspan">52</span>
+    </div>
+    <div class="selector">
+      <label for="G">G</label>
+      <input type="range" id="G" min="0" max="255" value="18" step="1">
+      <span id="Gspan">18</span>
+    </div>
+    <div class="selector">
+      <label for="B">B</label>
+      <input type="range" id="B" min="0" max="255" value="51" step="1">
+      <span id="Bspan">51</span>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
