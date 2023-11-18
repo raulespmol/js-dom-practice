@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
+:root {
+  --random-color: #FFFFFF;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -34,4 +38,6 @@ body {
 
 #color-btn {
   width: 200px;
+  /* color: var(--random-color); */
+  border: none;
 }

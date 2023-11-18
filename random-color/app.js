@@ -1,4 +1,3 @@
-const body = document.querySelector('body');
 const btn = document.querySelector('#color-btn');
 const colorSpan = document.querySelector('.color-code');
 
@@ -15,6 +14,7 @@ function generateColor() {
 btn.addEventListener('click', () => {
   let randomColor = generateColor();
   colorSpan.innerText = randomColor;
-  body.style.backgroundColor = randomColor;
+  document.body.style.backgroundColor = randomColor;
+  document.documentElement.style.setProperty('--random-color', randomColor);
 });
 
