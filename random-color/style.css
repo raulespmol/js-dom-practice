@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
-:root {
-  --random-color: #FFFFFF;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +9,7 @@
 
 body {
   min-height: 100vh;
-  background-color: #FFF;
+  background-color: #000000;
 }
 
 .flex-center {
