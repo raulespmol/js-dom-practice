@@ -14,6 +14,13 @@ body {
   background-color: #0b0241
 }
 
+.container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  text-align: center;
+}
+
 a {
   text-decoration: none;
   color: white;
