@@ -2,17 +2,21 @@ const inputTarea = document.querySelector('#ingresar-tarea');
 const btnAgregar = document.querySelector('#agregar');
 const listaTareas = document.querySelector('.lista-tareas');
 
-// inputTarea.addEventListener('key', agregarTarea())
 btnAgregar.addEventListener('click', agregarTarea);
+inputTarea.addEventListener('keydown', e => {
+  if(e.key === 'Enter'){ agregarTarea() };
+});
 
 function agregarTarea() {
   if(inputTarea.value){
     let item = document.createElement('li');
     item.classList.add('tarea');
 
+    //Tarea
     let tareaNueva = document.createElement('span');
     tareaNueva.innerText = inputTarea.value;
 
+    //Iconos
     let iconos = document.createElement('div');
     iconos.classList.add('iconos');
 
@@ -21,16 +25,15 @@ function agregarTarea() {
 
     let iconoEliminar = document.createElement('i');
     iconoEliminar.classList.add('bi', 'bi-x-circle', 'eliminar');
-    
-    iconos.appendChild(iconoTerminar);
-    iconos.appendChild(iconoEliminar);
 
-    item.appendChild(tareaNueva);
-    item.appendChild(iconos);
-
+    //Estructurar
+    iconos.append(iconoTerminar, iconoEliminar);
+    item.append(tareaNueva, iconos);
     listaTareas.appendChild(item);
-    
-    inputTarea.value = ''
-    // console.log(tareaNueva)
+
+    //Resetear input
+    inputTarea.value = '';
+  } else {
+    alert('Por favor ingresa una tarea')
   }
 }
