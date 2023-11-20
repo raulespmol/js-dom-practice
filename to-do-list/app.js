@@ -1,57 +1,23 @@
-const btnStartPause = document.querySelector('#start-pause');
-const btnClass = btnStartPause.classList;
-const btnReset = document.querySelector('#reset');
-const cronometro = document.querySelector('.cronometro');
+const inputTarea = document.querySelector('#ingresar-tarea');
+const btnAgregar = document.querySelector('#agregar');
+const listaTareas = document.querySelector('.lista-tareas');
 
-let [horas, minutos, segundos] = [0,0,0];
-let estado = 'pausado';
-let intervalo;
+// inputTarea.addEventListener('key', agregarTarea())
+btnAgregar.addEventListener('click', agregarTarea);
 
-btnStartPause.addEventListener('click', () => 
-  estado === 'pausado' ? iniciar() : detener() );
-
-function iniciar() {
-  intervalo = window.setInterval(correrCronometro, 1000)
-  btnClass.remove('start');
-  btnClass.add('pause');
-  btnStartPause.innerHTML = '<i class="bi bi-pause-fill"></i>'
-  estado = 'activo'
-}
-
-function detener() {
-  window.clearInterval(intervalo)
-  btnClass.remove('pause');
-  btnClass.add('start');
-  btnStartPause.innerHTML = '<i class="bi bi-play-fill"></i>'
-  estado = 'pausado'
-}
-
-
-function correrCronometro(){
-  segundos++;
-  if(segundos === 60){
-    segundos = 0;
-    minutos++;
-    if(minutos === 60){
-      minutos = 0;
-      horas++;
-    }
+function agregarTarea() {
+  if(inputTarea.value){
+    let tareaNueva = document.createElement('li');
+    tareaNueva.classList.add('tarea');
+    tareaNueva.innerHTML = `
+      <span>${inputTarea.value}</span>
+      <div class="iconos">
+        <i class="bi bi-check-circle"></i>
+        <i class="bi bi-x-circle"></i>
+      </div>
+    `
+    listaTareas.appendChild(tareaNueva);
+    inputTarea.value = ''
+    // console.log(tareaNueva)
   }
-
-  let formatoHoras = formatTime(horas);
-  let formatoMinutos = formatTime(minutos);
-  let formatoSegundos = formatTime(segundos);
-
-  function formatTime(unidad) {
-    return unidad < 10 ? '0' + unidad : unidad ;
-  }
-
-  cronometro.innerText = `${formatoHoras}:${formatoMinutos}:${formatoSegundos}`
 }
-
-
-btnReset.addEventListener('click', () => {
-  detener();
-  [horas, minutos, segundos] = [0,0,0];
-  cronometro.innerText = '00:00:00'
-})

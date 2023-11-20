@@ -43,6 +43,7 @@ body {
 
 #agregar {
   padding: 0 0.5rem;
+  cursor: pointer;
 }
 
 .contenedor-tareas {
@@ -70,6 +71,7 @@ body {
 
 .tarea i {
   color: #FFF;
+  cursor: pointer;
 }
 
 .tarea.hecha {
