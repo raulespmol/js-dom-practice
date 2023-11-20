@@ -60,22 +60,39 @@ body {
 
 .tarea {
   padding: 0.5rem;
-  background-color: #407ba6;
+  background-color: #2f5d7c;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.tarea span, .tarea i {
+  color: #FFF;
 }
 
 .tarea span {
-  color: #FFF;
+  max-width: 300px;
 }
 
-.tarea i {
-  color: #FFF;
+.iconos {
+  display: flex;
+  gap: 10px;
+}
+
+.iconos i {
   cursor: pointer;
 }
 
+.terminar:hover {
+  color: #adff2f
+}
+
+.eliminar:hover {
+  color: #fa962c;
+}
+
 .tarea.hecha {
-  background-color: #1f4e70;
+  background-color: #62717c;
 }
 
 .tarea.hecha span {

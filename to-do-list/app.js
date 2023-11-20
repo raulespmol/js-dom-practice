@@ -7,16 +7,29 @@ btnAgregar.addEventListener('click', agregarTarea);
 
 function agregarTarea() {
   if(inputTarea.value){
-    let tareaNueva = document.createElement('li');
-    tareaNueva.classList.add('tarea');
-    tareaNueva.innerHTML = `
-      <span>${inputTarea.value}</span>
-      <div class="iconos">
-        <i class="bi bi-check-circle"></i>
-        <i class="bi bi-x-circle"></i>
-      </div>
-    `
-    listaTareas.appendChild(tareaNueva);
+    let item = document.createElement('li');
+    item.classList.add('tarea');
+
+    let tareaNueva = document.createElement('span');
+    tareaNueva.innerText = inputTarea.value;
+
+    let iconos = document.createElement('div');
+    iconos.classList.add('iconos');
+
+    let iconoTerminar = document.createElement('i');
+    iconoTerminar.classList.add('bi', 'bi-check-circle', 'terminar');
+
+    let iconoEliminar = document.createElement('i');
+    iconoEliminar.classList.add('bi', 'bi-x-circle', 'eliminar');
+    
+    iconos.appendChild(iconoTerminar);
+    iconos.appendChild(iconoEliminar);
+
+    item.appendChild(tareaNueva);
+    item.appendChild(iconos);
+
+    listaTareas.appendChild(item);
+    
     inputTarea.value = ''
     // console.log(tareaNueva)
   }
